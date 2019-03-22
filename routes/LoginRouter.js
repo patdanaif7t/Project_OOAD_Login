@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const LoginRouter = express.Router();
-const Emp = require('../models/Emp.model');
 const Person = require('../models/Person.model')
 
 LoginRouter.route('/').get(function (req, res) {
@@ -16,6 +15,7 @@ LoginRouter.route('/').post((req, res) => {
       if (person.password === req.body.pass) {
         res.redirect('/mangeperson')
       } else {
+        alert('รหัสผ่านผิดพลาด')
         res.redirect('/login')
       }
   }).catch(err => {
